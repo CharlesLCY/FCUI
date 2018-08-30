@@ -1,1 +1,1 @@
-### FCUI - 快读开发项目的UI前端框架
+### FCUI - 基于Kotlin的Android UI框架
