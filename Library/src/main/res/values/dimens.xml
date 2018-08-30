@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    ////////////////////////////////////////////////////////////////////////////////////////////////
+    //////////////////// 字体相关
+    ////////////////////////////////////////////////////////////////////////////////////////////////
+    <!--大标题-->
+    <dimen name="text_h0_20">20sp</dimen>
+    <dimen name="text_h1_18">18sp</dimen>
+    <!--小标题-->
+    <dimen name="text_h2_17">17sp</dimen>
+    <dimen name="text_h2_16">16sp</dimen>
+
+    <!--常规，用于列表中的标题等-->
+    <dimen name="text_default_15">15sp</dimen>
+    <dimen name="text_default_14">14sp</dimen>
+    <!--正文字号-->
+    <dimen name="text_content_14">14sp</dimen>
+    <!--辅助字号-->
+    <dimen name="text_assist_13">13sp</dimen>
+    <dimen name="text_assist_12">12sp</dimen>
+    <dimen name="text_label_11">11sp</dimen>
+    <dimen name="text_label_10">10sp</dimen>
+    <dimen name="text_min_9">9sp</dimen>
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////
+    //////////////////// 尺寸大小相关
+    ////////////////////////////////////////////////////////////////////////////////////////////////
+    <dimen name="bottom_item_height">50dp</dimen>
+    <dimen name="title_bar_height">56dp</dimen>
+    <dimen name="setting_item_height">50dp</dimen>
+    <dimen name="edit_item_height">50dp</dimen>
+    <dimen name="button_item_height">44dp</dimen>
+    <dimen name="title_bar_icon_size">35dp</dimen>
+    <dimen name="divider_line">2dp</dimen>
+    <dimen name="user_icon_size">68dp</dimen>
+    <dimen name="user_icon_small_size">40dp</dimen>
+    <dimen name="photo_show_size">80dp</dimen>
+    ////////////////////////////////////////////////////////////////////////////////////////////////
+    //////////////////// 填充和间距相关
+    ////////////////////////////////////////////////////////////////////////////////////////////////
+    <dimen name="normal_item_spacing">10dp</dimen>
+    <dimen name="large_item_spacing">25dp</dimen>
+    <dimen name="normal_clickable_padding">10dp</dimen>
+    <dimen name="setting_item_margin_left_right">10dp</dimen>
+    <dimen name="normal_margin_left_right">14dp</dimen>
+    <dimen name="small_margin_left_right">3dp</dimen>
+
+</resources>

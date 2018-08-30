@@ -1,0 +1,114 @@
+<?xml version = "1.0" encoding = "utf-8" ?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="?android:attr/actionBarSize">
+
+    <LinearLayout
+        android:id="@+id/left_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:minWidth="40dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/left_icon"
+            android:layout_width="@dimen/title_bar_icon_size"
+            android:layout_height="@dimen/title_bar_icon_size"
+            android:padding="@dimen/normal_clickable_padding"
+            android:src="@drawable/ic_setting_back_white"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/left_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="@dimen/normal_clickable_padding"
+            android:textColor="@color/color_FFFFFF"
+            android:textSize="@dimen/text_h2_16"
+            android:visibility="gone"
+            tools:text="left" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/center_layout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/right_layout"
+        app:layout_constraintStart_toEndOf="@+id/left_layout"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_goneMarginEnd="40dp"
+        app:layout_goneMarginStart="40dp">
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/center_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:textColor="@color/color_FFFFFF"
+        android:textSize="@dimen/text_h1_18"
+        tools:text="Title" />
+
+    <LinearLayout
+        android:id="@+id/right_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:minWidth="40dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/right_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="@dimen/normal_clickable_padding"
+            android:textColor="@color/color_FFFFFF"
+            android:textSize="@dimen/text_h2_16"
+            android:visibility="gone"
+            tools:text="right" />
+
+        <ImageView
+            android:id="@+id/right_icon"
+            android:layout_width="@dimen/title_bar_icon_size"
+            android:layout_height="@dimen/title_bar_icon_size"
+            android:padding="@dimen/normal_clickable_padding"
+            android:src="@drawable/ic_setting_arrow_black"
+            android:visibility="gone" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/right_dot_msg"
+        style="@style/MsgDotStyle"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="@id/right_layout"
+        app:layout_constraintTop_toTopOf="@+id/right_layout" />
+
+    <TextView
+        android:id="@+id/right_count_msg"
+        style="@style/MsgCountStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="@id/right_layout"
+        app:layout_constraintTop_toTopOf="@+id/right_layout"
+        tools:text="2" />
+</android.support.constraint.ConstraintLayout>
