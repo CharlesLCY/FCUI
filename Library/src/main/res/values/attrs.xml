@@ -3,7 +3,7 @@
 
 
 
-    <declare-styleable name="MultipleTitleBar">
+    <declare-styleable name="FCTitleBar">
         <attr name="titleBarBackground" format="reference|color" />
         <attr name="leftImage" format="reference" />
         <attr name="leftImageVisible" format="boolean" />

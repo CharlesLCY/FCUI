@@ -36,8 +36,8 @@ import static android.support.v4.content.ContextCompat.getColor;
  * enableSearchBar()可启用search输入框，可编辑，带删除icon
  * enableSearchBarDisable()启用search框展示，hint居中，不可编辑
  **/
-public class MultipleTitleBar extends RelativeLayout implements View.OnClickListener {
-    private static final String TAG = MultipleTitleBar.class.getSimpleName();
+public class FCTitleBar extends RelativeLayout implements View.OnClickListener {
+    private static final String TAG = FCTitleBar.class.getSimpleName();
 
     public static final int MSG_NONE = 0;
     public static final int MSG_COUNT = 1;
@@ -62,17 +62,17 @@ public class MultipleTitleBar extends RelativeLayout implements View.OnClickList
 
     private OnViewClickListener mOnViewClickListener;
 
-    public MultipleTitleBar(Context context) {
+    public FCTitleBar(Context context) {
         super(context);
         initView(context, null);
     }
 
-    public MultipleTitleBar(Context context, AttributeSet attrs) {
+    public FCTitleBar(Context context, AttributeSet attrs) {
         super(context, attrs);
         initView(context, attrs);
     }
 
-    public MultipleTitleBar(Context context, AttributeSet attrs, int defStyleAttr) {
+    public FCTitleBar(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         initView(context, attrs);
     }
@@ -94,71 +94,71 @@ public class MultipleTitleBar extends RelativeLayout implements View.OnClickList
         setBackgroundColor(Color.WHITE);
 
         TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable
-                .MultipleTitleBar);
+                .FCTitleBar);
 
         for (int i = 0; i < typedArray.getIndexCount(); i++) {
             int index = typedArray.getIndex(i);
-            if (index == R.styleable.MultipleTitleBar_leftImage) {
+            if (index == R.styleable.FCTitleBar_leftImage) {
                 leftIcon.setImageDrawable(typedArray.getDrawable(index));
 
-            } else if (index == R.styleable.MultipleTitleBar_leftImageVisible) {
+            } else if (index == R.styleable.FCTitleBar_leftImageVisible) {
                 getVisible(typedArray, leftIcon, index);
 
-            } else if (index == R.styleable.MultipleTitleBar_leftText) {
+            } else if (index == R.styleable.FCTitleBar_leftText) {
                 leftText.setText(typedArray.getString(index));
 
-            } else if (index == R.styleable.MultipleTitleBar_leftTextSize) {
+            } else if (index == R.styleable.FCTitleBar_leftTextSize) {
                 leftText.setTextSize(typedArray.getDimensionPixelSize(index, DisplayUtil
                         .sp2px(16f)));
 
-            } else if (index == R.styleable.MultipleTitleBar_leftTextColor) {
+            } else if (index == R.styleable.FCTitleBar_leftTextColor) {
                 leftText.setTextColor(typedArray.getColor(index, Color.WHITE));
 
-            } else if (index == R.styleable.MultipleTitleBar_leftTextVisible) {
+            } else if (index == R.styleable.FCTitleBar_leftTextVisible) {
                 getVisible(typedArray, leftText, index);
 
-            } else if (index == R.styleable.MultipleTitleBar_centerText) {
+            } else if (index == R.styleable.FCTitleBar_centerText) {
                 centerText.setText(typedArray.getString(index));
 
-            } else if (index == R.styleable.MultipleTitleBar_centerTextVisible) {
+            } else if (index == R.styleable.FCTitleBar_centerTextVisible) {
                 getVisible(typedArray, centerText, index);
 
-            } else if (index == R.styleable.MultipleTitleBar_centerTextSize) {
+            } else if (index == R.styleable.FCTitleBar_centerTextSize) {
                 centerText.setTextSize(typedArray.getDimensionPixelSize(index, DisplayUtil
                         .sp2px(18f)));
 
-            } else if (index == R.styleable.MultipleTitleBar_centerTextColor) {
+            } else if (index == R.styleable.FCTitleBar_centerTextColor) {
                 centerText.setTextColor(typedArray.getColor(index, Color.WHITE));
 
                 rightIcon.setImageDrawable(typedArray.getDrawable(index));
 
-            } else if (index == R.styleable.MultipleTitleBar_rightImage) {
+            } else if (index == R.styleable.FCTitleBar_rightImage) {
                 rightIcon.setImageDrawable(typedArray.getDrawable(index));
 
-            } else if (index == R.styleable.MultipleTitleBar_rightImageVisible) {
+            } else if (index == R.styleable.FCTitleBar_rightImageVisible) {
                 getVisible(typedArray, rightIcon, index);
 
-            } else if (index == R.styleable.MultipleTitleBar_rightText) {
+            } else if (index == R.styleable.FCTitleBar_rightText) {
                 rightText.setText(typedArray.getString(index));
 
-            } else if (index == R.styleable.MultipleTitleBar_rightTextSize) {
+            } else if (index == R.styleable.FCTitleBar_rightTextSize) {
                 rightText.setTextSize(typedArray.getDimensionPixelSize(index, DisplayUtil
                         .sp2px(16f)));
 
-            } else if (index == R.styleable.MultipleTitleBar_rightTextColor) {
+            } else if (index == R.styleable.FCTitleBar_rightTextColor) {
                 rightText.setTextColor(typedArray.getColor(index, Color.WHITE));
 
-            } else if (index == R.styleable.MultipleTitleBar_rightTextVisible) {
+            } else if (index == R.styleable.FCTitleBar_rightTextVisible) {
                 getVisible(typedArray, rightText, index);
 
-            } else if (index == R.styleable.MultipleTitleBar_titleBarBackground) {
+            } else if (index == R.styleable.FCTitleBar_titleBarBackground) {
                 int titleBarBackgroundColor = typedArray.getColor(index, getColor
                         (App.context, R.color.color_FFFFFF));
                 setBackgroundColor(titleBarBackgroundColor);
 
-            } else if (index == R.styleable.MultipleTitleBar_leftLayoutVisible) {
+            } else if (index == R.styleable.FCTitleBar_leftLayoutVisible) {
                 getVisible(typedArray, leftLayout, index);
-            } else if (index == R.styleable.MultipleTitleBar_rightLayoutVisible) {
+            } else if (index == R.styleable.FCTitleBar_rightLayoutVisible) {
                 getVisible(typedArray, rightLayout, index);
             } else {
                 Log.d(TAG,"The navigation bar has no properties set");
@@ -205,108 +205,108 @@ public class MultipleTitleBar extends RelativeLayout implements View.OnClickList
         void onViewClick(View v);
     }
 
-    public MultipleTitleBar setLeftText(String text) {
+    public FCTitleBar setLeftText(String text) {
         if (!TextUtils.isEmpty(text)) {
             leftText.setText(text);
         }
         return this;
     }
 
-    public MultipleTitleBar setCenterText(String text) {
+    public FCTitleBar setCenterText(String text) {
         if (!TextUtils.isEmpty(text)) {
             centerText.setText(text);
         }
         return this;
     }
 
-    public MultipleTitleBar setRightText(String text) {
+    public FCTitleBar setRightText(String text) {
         if (!TextUtils.isEmpty(text)) {
             rightText.setText(text);
         }
         return this;
     }
 
-    public MultipleTitleBar setLeftTextColor(int textColor) {
+    public FCTitleBar setLeftTextColor(int textColor) {
         leftText.setTextColor(textColor);
         return this;
     }
 
-    public MultipleTitleBar setCenterTextColor(int textColor) {
+    public FCTitleBar setCenterTextColor(int textColor) {
         centerText.setTextColor(textColor);
         return this;
     }
 
-    public MultipleTitleBar setRightTextColor(int textColor) {
+    public FCTitleBar setRightTextColor(int textColor) {
         rightText.setTextColor(textColor);
         return this;
     }
 
-    public MultipleTitleBar setTitleBarBackground(int color) {
+    public FCTitleBar setTitleBarBackground(int color) {
         setBackgroundColor(color);
         return this;
     }
 
-    public MultipleTitleBar setLeftIcon(int res) {
+    public FCTitleBar setLeftIcon(int res) {
         leftIcon.setImageResource(res);
         return this;
     }
 
-    public MultipleTitleBar setRightIcon(int res) {
+    public FCTitleBar setRightIcon(int res) {
         rightIcon.setImageResource(res);
         return this;
     }
 
-    public MultipleTitleBar setRightTextSize(int size) {
+    public FCTitleBar setRightTextSize(int size) {
         rightText.setTextSize(TypedValue.COMPLEX_UNIT_SP, size);
         return this;
     }
 
-    public MultipleTitleBar setLeftTextSize(int size) {
+    public FCTitleBar setLeftTextSize(int size) {
         leftText.setTextSize(TypedValue.COMPLEX_UNIT_SP, size);
         return this;
     }
 
-    public MultipleTitleBar setCenterTextSize(int size) {
+    public FCTitleBar setCenterTextSize(int size) {
         centerText.setTextSize(TypedValue.COMPLEX_UNIT_SP, size);
         return this;
     }
 
-    public MultipleTitleBar setLeftIconVisible(boolean visible) {
+    public FCTitleBar setLeftIconVisible(boolean visible) {
         setVisible(leftIcon, visible);
         return this;
     }
 
-    public MultipleTitleBar setLeftTextVisible(boolean visible) {
+    public FCTitleBar setLeftTextVisible(boolean visible) {
         setVisible(leftText, visible);
         return this;
     }
 
-    public MultipleTitleBar setRightIconVisible(boolean visible) {
+    public FCTitleBar setRightIconVisible(boolean visible) {
         setVisible(rightIcon, visible);
         return this;
     }
 
-    public MultipleTitleBar setRightTextVisible(boolean visible) {
+    public FCTitleBar setRightTextVisible(boolean visible) {
         setVisible(rightText, visible);
         return this;
     }
 
-    public MultipleTitleBar setCenterTextVisible(boolean visible) {
+    public FCTitleBar setCenterTextVisible(boolean visible) {
         setVisible(centerText, visible);
         return this;
     }
 
-    public MultipleTitleBar setLeftLayoutVisible(boolean visible) {
+    public FCTitleBar setLeftLayoutVisible(boolean visible) {
         setVisible(leftLayout, visible);
         return this;
     }
 
-    public MultipleTitleBar setRightLayoutVisible(boolean visible) {
+    public FCTitleBar setRightLayoutVisible(boolean visible) {
         setVisible(rightLayout, visible);
         return this;
     }
 
-    public MultipleTitleBar setCenterLayoutVisible(boolean visible) {
+    public FCTitleBar setCenterLayoutVisible(boolean visible) {
         setVisible(centerLayout, visible);
         return this;
     }
@@ -315,7 +315,7 @@ public class MultipleTitleBar extends RelativeLayout implements View.OnClickList
      * 启用搜索框
      * @param hint 提示文字
      */
-    public MultipleTitleBar enableSearchBar(String text, String hint, SearchEditorTextWatcher textWatcher) {
+    public FCTitleBar enableSearchBar(String text, String hint, SearchEditorTextWatcher textWatcher) {
         setVisible(centerText, false);
         View search = View.inflate(centerLayout.getContext(), R.layout.search_layout, null);
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(ViewGroup
@@ -343,7 +343,7 @@ public class MultipleTitleBar extends RelativeLayout implements View.OnClickList
      * @param hint 提示文字
      * @param listener 输入框点击监听
      */
-    public MultipleTitleBar enableSearchBarDisable(String hint, OnClickListener listener) {
+    public FCTitleBar enableSearchBarDisable(String hint, OnClickListener listener) {
         setVisible(centerText, false);
         View search = View.inflate(centerLayout.getContext(), R.layout.search_layout_disable, null);
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(ViewGroup
@@ -394,7 +394,7 @@ public class MultipleTitleBar extends RelativeLayout implements View.OnClickList
     /**
      * 设置搜索框背景
      */
-    public MultipleTitleBar setSearchBarBackground(@DrawableRes int resId) {
+    public FCTitleBar setSearchBarBackground(@DrawableRes int resId) {
         if (searchLayout != null) {
             searchLayout.setBackgroundResource(resId);
         }
@@ -406,7 +406,7 @@ public class MultipleTitleBar extends RelativeLayout implements View.OnClickList
      * @param msgType MSG_COUNT(数字)、MSG_DOT(圆点)、MSG_NONE(清除消息)
      * @param msgCount 未读消息数目，msgType不为MSG_COUNT则无效
      */
-    public MultipleTitleBar setRightMsg(int msgType, int msgCount) {
+    public FCTitleBar setRightMsg(int msgType, int msgCount) {
         String count = null;
         switch (msgType) {
             case MSG_COUNT:

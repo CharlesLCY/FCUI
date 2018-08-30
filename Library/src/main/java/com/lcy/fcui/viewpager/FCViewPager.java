@@ -11,7 +11,7 @@ import android.view.MotionEvent;
  * @email 15708478830@163.com
  * @desc 可禁止滑动
  **/
-public class BaseViewPager extends ViewPager {
+public class FCViewPager extends ViewPager {
     // 是否可滑动
     public boolean isSlide = true;
 
@@ -23,11 +23,11 @@ public class BaseViewPager extends ViewPager {
         isSlide = slide;
     }
 
-    public BaseViewPager(Context context) {
+    public FCViewPager(Context context) {
         super(context);
     }
 
-    public BaseViewPager(Context context, AttributeSet attrs) {
+    public FCViewPager(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 

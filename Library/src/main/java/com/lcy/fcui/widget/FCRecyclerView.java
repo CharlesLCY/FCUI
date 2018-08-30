@@ -12,19 +12,19 @@ import android.view.View;
  * @email 15708478830@163.com
  * @desc 自定义RecyclerView
  **/
-public class CustomRecyclerView extends RecyclerView {
+public class FCRecyclerView extends RecyclerView {
     private View emptyView;
     private static final String TAG = "CustomRecyclerView";
 
-    public CustomRecyclerView(Context context) {
+    public FCRecyclerView(Context context) {
         super(context);
     }
 
-    public CustomRecyclerView(Context context, @Nullable AttributeSet attrs) {
+    public FCRecyclerView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
     }
 
-    public CustomRecyclerView(Context context, @Nullable AttributeSet attrs, int defStyle) {
+    public FCRecyclerView(Context context, @Nullable AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
     }
 

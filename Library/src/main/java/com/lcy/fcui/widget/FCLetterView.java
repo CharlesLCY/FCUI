@@ -20,7 +20,7 @@ import com.lcy.fcui.utils.DisplayUtil;
  * @desc 字母索引bar
  **/
 
-public class LetterListView extends View {
+public class FCLetterView extends View {
     OnTouchingLetterChangedListener onTouchingLetterChangedListener;
     public static String[] b = {"A", "B", "C", "D", "E", "F", "G", "H", "J", "K",
             "L", "M", "N", "P", "Q", "R", "S", "T", "W", "X", "Y", "Z", "#"};
@@ -29,17 +29,17 @@ public class LetterListView extends View {
     boolean showBkg = false;
     private Context mContext;
 
-    public LetterListView(Context context, AttributeSet attrs, int defStyle) {
+    public FCLetterView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
         this.mContext = context;
     }
 
-    public LetterListView(Context context, AttributeSet attrs) {
+    public FCLetterView(Context context, AttributeSet attrs) {
         super(context, attrs);
         this.mContext = context;
     }
 
-    public LetterListView(Context context) {
+    public FCLetterView(Context context) {
         super(context);
         this.mContext = context;
     }
