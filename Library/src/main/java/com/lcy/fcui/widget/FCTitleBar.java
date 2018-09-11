@@ -5,12 +5,13 @@ import android.content.res.TypedArray;
 import android.graphics.Color;
 import android.support.annotation.DrawableRes;
 import android.support.constraint.ConstraintLayout;
+import android.support.v4.content.ContextCompat;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.util.TypedValue;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,7 +25,7 @@ import com.lcy.fcui.App;
 import com.lcy.fcui.R;
 import com.lcy.fcui.utils.DisplayUtil;
 
-import static android.support.v4.content.ContextCompat.getColor;
+import java.util.logging.Logger;
 
 /**
  * @author FanCoder.LCY
@@ -37,8 +38,6 @@ import static android.support.v4.content.ContextCompat.getColor;
  * enableSearchBarDisable()启用search框展示，hint居中，不可编辑
  **/
 public class FCTitleBar extends RelativeLayout implements View.OnClickListener {
-    private static final String TAG = FCTitleBar.class.getSimpleName();
-
     public static final int MSG_NONE = 0;
     public static final int MSG_COUNT = 1;
     public static final int MSG_DOT = 2;
@@ -91,7 +90,7 @@ public class FCTitleBar extends RelativeLayout implements View.OnClickListener {
         rightLayout = view.findViewById(R.id.right_layout);
         centerLayout = view.findViewById(R.id.center_layout);
 
-        setBackgroundColor(Color.WHITE);
+        setBackgroundColor(ContextCompat.getColor(App.context, R.color.color_4A90FA));
 
         TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable
                 .FCTitleBar);
@@ -152,8 +151,8 @@ public class FCTitleBar extends RelativeLayout implements View.OnClickListener {
                 getVisible(typedArray, rightText, index);
 
             } else if (index == R.styleable.FCTitleBar_titleBarBackground) {
-                int titleBarBackgroundColor = typedArray.getColor(index, getColor
-                        (App.context, R.color.color_FFFFFF));
+                int titleBarBackgroundColor = typedArray.getColor(index, ContextCompat.getColor
+                        (App.context, R.color.color_4A90FA));
                 setBackgroundColor(titleBarBackgroundColor);
 
             } else if (index == R.styleable.FCTitleBar_leftLayoutVisible) {
@@ -161,7 +160,7 @@ public class FCTitleBar extends RelativeLayout implements View.OnClickListener {
             } else if (index == R.styleable.FCTitleBar_rightLayoutVisible) {
                 getVisible(typedArray, rightLayout, index);
             } else {
-                Log.d(TAG,"The navigation bar has no properties set");
+                Logger.getLogger("The navigation bar has no properties set");
             }
         }
         typedArray.recycle();
@@ -312,6 +311,41 @@ public class FCTitleBar extends RelativeLayout implements View.OnClickListener {
     }
 
     /**
+     * 添加右边icon
+     * @param context activity实例
+     * @param resId 图片资源id
+     * @param listener 点击监听
+     */
+    public FCTitleBar addRightIcon(Context context, @DrawableRes int resId, OnClickListener listener) {
+        ImageView icon = new ImageView(context);
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(DisplayUtil.dp2px(18f),
+                DisplayUtil.dp2px(18f));
+        params.gravity = Gravity.CENTER_VERTICAL;
+        params.rightMargin = DisplayUtil.dp2px(5f);
+//        ImageLoader.getInstance().apply(ImageLoader.getRadiusOption(0f)).load(icon, resId);
+        icon.setImageResource(resId);
+        icon.setOnClickListener(listener);
+        rightLayout.addView(icon, 0, params);
+        return this;
+    }
+
+    public TextView getCenterText() {
+        return centerText;
+    }
+
+    public LinearLayout getCenterLayout() {
+        return centerLayout;
+    }
+
+    public LinearLayout getRightLayout() {
+        return rightLayout;
+    }
+
+    public LinearLayout getLeftLayout() {
+        return leftLayout;
+    }
+
+    /**
      * 启用搜索框
      * @param hint 提示文字
      */
@@ -354,7 +388,9 @@ public class FCTitleBar extends RelativeLayout implements View.OnClickListener {
         ConstraintLayout hintLayout = search.findViewById(R.id.search_layout);
         TextView tvHint = search.findViewById(R.id.tv_search);
         tvHint.setText(hint);
-        hintLayout.setOnClickListener(v -> listener.onClick(v));
+        hintLayout.setOnClickListener(v -> {
+            listener.onClick(v);
+        });
         return this;
     }
 

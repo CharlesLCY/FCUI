@@ -1,17 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <com.lcy.fcui.widget.FCTitleBar
-        android:id="@+id/title_bar"
-        android:layout_width="0dp"
-        android:layout_height="?android:attr/actionBarSize"
-        app:centerText="FCUI"
-        app:titleBarBackground="@color/colorPrimaryDark"
-        app:centerTextColor="@color/color_FFFFFF"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-</android.support.constraint.ConstraintLayout>
+    <data class=".ActivityFirst">
+
+        <variable
+            name="time"
+            type="java.util.Date"/>
+        <variable
+            name="obitem"
+            type="com.lcy.demo.ObItem"/>
+    </data>
+
+    <android.support.constraint.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.lcy.fcui.widget.FCTitleBar
+            android:id="@+id/title_bar"
+            android:layout_width="0dp"
+            android:layout_height="?android:attr/actionBarSize"
+            app:centerText="您好"
+            app:centerTextColor="@color/color_FFFFFF"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:titleBarBackground="@color/colorPrimaryDark" />
+
+        <TextView
+            android:id="@+id/tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{obitem.name}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/et"
+            android:layout_width="0dp"
+            android:text="@={obitem.name}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_height="wrap_content" />
+    </android.support.constraint.ConstraintLayout>
+
+</layout>
